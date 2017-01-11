@@ -31,7 +31,7 @@ $('.searchNewMovies').click(function(){
       movie.Year
     ]
     console.log(movieData)
-    $('.newMovieSearch').append(`
+    $('.newMovieSearch').append(`<div class="newMovieWrapper">
                                 <h4>${title} - ${year}</h4>
                                 <p>${actors}</p>
       <img class="moviePosterImg" src="${poster}">`)

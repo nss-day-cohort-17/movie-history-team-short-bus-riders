@@ -7,9 +7,13 @@
   margin-right: auto;
 }
 
+.newMovieWrapper {
+  padding: 1em;
+}
 
-.newMovieSearch{
+.newMovieSearch, .unwatchedMovies, .watchedMovies {
   border: 2px solid black;
-  width: 25%;
-  height: 27em;
+  /*width: 25%;*/
+  height: 30em;
+  margin-right: .5em;
 }
