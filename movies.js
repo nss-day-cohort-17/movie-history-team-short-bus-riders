@@ -5,7 +5,8 @@ var actors;
 var title;
 var poster;
 var year;
-var movieData
+var movieData;
+var newMovieData;
 
 
 
@@ -20,25 +21,37 @@ $('.searchNewMovies').click(function(){
   }).then(function(data){
     movie = data;
     console.log(data)
-  }).then(function(){
     title = movie.Title
     actors = movie.Actors
     poster = movie.Poster
     year = movie.Year
-    movieData = [
-      movie.Title,
-      movie.Actors,
-      movie.Year
-    ]
+    movieData = {
+      "title": title,
+      "actors": actors,
+      "year": year
+    }
     console.log(movieData)
     $('.newMovieSearch').append(`<div class="newMovieWrapper">
                                 <span></span>
                                 <h4>${title} - ${year}</h4>
                                 <p>${actors}</p>
-      <img class="moviePosterImg" src="${poster}">`)
+      <img class="moviePosterImg" src="${poster}">
+       </div>`)
+    newMovieData = JSON.stringify(movieData)
   })
 })
 
 
 
-// console.log(replaced)
+$('#addToList').click(function(data){
+  console.log('hello')
+  console.log(movieData)
+  var buttonList = $.ajax({
+    accept: "application/json",
+    contentType: "application/json; charset=utf-8",
+    method: "POST",
+    url: "https://movies-by-short-bus.firebaseio.com/.json",
+    data: newMovieData,
+    dataType: 'json'
+  })
+})
