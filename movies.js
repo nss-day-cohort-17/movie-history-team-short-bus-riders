@@ -1,10 +1,17 @@
 var str;
 var replaced;
 var movie;
+var actors;
+var title;
+var poster;
+var year;
+var movieData
 
 
-$('.btn').click(function(){
-  str = $("#movieSearch").val();
+
+$('.searchNewMovies').click(function(){
+  $('.newMovieSearch').empty()
+  str = $("#userInput").val();
   // replaced = str.split(' ').join('+');
   console.log(str)
   var request = $.ajax({
@@ -14,12 +21,23 @@ $('.btn').click(function(){
     movie = data;
     console.log(data)
   }).then(function(){
-    console.log(movie.Title)
-    console.log(movie.Actors)
-    var poster = movie.Poster
-    $('body').append(`<img src="${poster}">`)
+    title = movie.Title
+    actors = movie.Actors
+    poster = movie.Poster
+    year = movie.Year
+    movieData = [
+      movie.Title,
+      movie.Actors,
+      movie.Year
+    ]
+    console.log(movieData)
+    $('.newMovieSearch').append(`
+                                <h4>${title} - ${year}</h4>
+                                <p>${actors}</p>
+      <img class="moviePosterImg" src="${poster}">`)
   })
 })
+
 
 
 // console.log(replaced)
