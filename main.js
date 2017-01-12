@@ -65,6 +65,20 @@ $('.login').click((e) => {
 
 })
 
+// save user submitted data to firebase
+
+$('.main-page form').submit((e) => {
+  var task = $('.main-page input[type="text"]').val()
+  var uid = firebase.auth().currentUser.uid
+  $.post(
+    `https://movies-by-short-bus.firebaseio.com/${uid}.json`,
+    JSON.stringify({ task: task })
+  ).then(res => console.log(res.name))
+
+  e.preventDefault()
+})
+
+
 function showHideStuff() {
   $('.registrationButtons').addClass('hidden')
   $('.datawrapper').removeClass('hidden')
