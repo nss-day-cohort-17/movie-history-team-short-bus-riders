@@ -81,6 +81,8 @@
 
 // click function for query
 
+
+
 var title;
 var year;
 var queryString;
