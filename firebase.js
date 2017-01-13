@@ -5,7 +5,7 @@
 //     `https://movies-by-short-bus.firebaseio.com/${uid}.json`,
 //     JSON.stringify({ task: task })
 //   ).then(res => console.log(res.name))
-
+//
 //   e.preventDefault()
 // })
 
