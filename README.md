@@ -1,3 +1,5 @@
+https://cloud.githubusercontent.com/assets/20300881/21936536/17083d6a-d977-11e6-8415-1dfd85fd06ef.jpg
+
 # Movie History
 
 You will be split up into teams of three, and your team will build a new application to keep track of movies that you have seen, and want to see, with your own ratings based on [OMDb API](http://omdbapi.com/).
