@@ -39,10 +39,6 @@ $('.register').click((e) => {
 
 
 
-
-
-
-
 $('.login').click((e) => {
   e.preventDefault()
   var email = $('.emailRegister').val()
@@ -69,6 +65,7 @@ function showHideStuff() {
   $('.registrationButtons').addClass('hidden')
   $('.datawrapper').removeClass('hidden')
 }
+
 
 $('.main-page form').submit((e) => {
   var task = $('.main-page input[type="text"]').val()
