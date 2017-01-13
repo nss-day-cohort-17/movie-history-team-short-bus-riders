@@ -25,7 +25,7 @@ setTimeout(() => {
       console.log('boo')
   }
   console.log('done')
-}, 100)
+}, 1000)
 
 
 //checks to see if the user is logged in or not
@@ -156,11 +156,12 @@ function populateMyMoviesPage(e) {
       console.log(e[p].movie)
       if (e[p].movie.watched === false){
         $('.unwatchedMovies').append(`
-          <div class="movieUnwatched">
-          <h4>${e[p].movie.title}</h4>
-          <img src="${e[p].movie.poster}">
-          <button class="markWatched btn">Mark as Watched</button>
-          </div>`
+            <div class="movieUnwatched col-md-4">
+              <h4>${e[p].movie.title}</h4>
+              <img src="${e[p].movie.poster}">
+              <button class="markWatched btn">Mark as Watched</button>
+            </div>
+          `
         )
       }
     }
