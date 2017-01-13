@@ -16,6 +16,7 @@ $('#auth-button').click(function (e){
   console.log('hello')
 })
 
+  
 
 $('.register').click((e) => {
   e.preventDefault()
@@ -23,6 +24,7 @@ $('.register').click((e) => {
   var password = $('.passwordRegister').val()
   // var username = $('.')
   // var registeredEmail = firebase.auth().currentUser.email
+
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(function () {
         showHideStuff();
@@ -40,6 +42,21 @@ $('.register').click((e) => {
 
 
 
+
+// firebase.auth().onAuthStateChanged(() => {
+//   if (firebase.auth().currentUser !== null) {
+//       //logged in
+//       var email = firebase.auth().currentUser.email
+//           $('.login-page').addClass('hidden')
+//           $('.main-page').removeClass('hidden')
+//           $('.main-page h1').text(`Welcome ${email}`)
+//
+//   } else {
+//           $('.login-page').removeClass('hidden')
+//           $('.main-page').addClass('hidden')
+//   }
+//
+// })
 
 
 
