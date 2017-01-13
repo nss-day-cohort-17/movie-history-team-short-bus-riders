@@ -9,20 +9,8 @@
 //   e.preventDefault()
 // })
 
-// //save a movie
 
-// function saveMovie(e){
-//     // console.log("new log",newMovieData)
-//     $.ajax({
-//         accept: "application/json",
-//         type: 'POST',
-//         contentType: "application/json; charset=utf-8",
-//         dataType: "json",
-//         url: "https://movie-history-team-short-bus-riders.firebaseio.com/.json",
-//         data: JSON.stringify(newMovieData)
-//     });
-//     clearMovie()
-// }
+
 
 // //pull saved movies from firebase
 
