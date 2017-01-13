@@ -12,16 +12,22 @@
 
 
 
-// //pull saved movies from firebase
+//pull saved movies from firebase
 
+
+
+//
+//
 // function myMovies(){
 //     // console.log("new log",newMovieData)
-//     $.ajax({url: "https://movie-history-team-short-bus-riders.firebaseio.com/.json"})
+//     var uid = firebase.auth().currentUser.uid
+//     $.getJSON( `https://movie-history-team-short-bus-riders.firebaseio.com/${uid}.json`)
 //         .done(function(e) {
-
+//
 //         populateMyMoviesPage(e) // <--send saved movies to function populateMyMoviesPage
-
+//
 //         // console.log("your saved movies are:", e)
 // })
-
+//
 // }
+//

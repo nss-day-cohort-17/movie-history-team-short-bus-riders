@@ -9,11 +9,12 @@ var movieData;
 var newMovieData;
 
 
-
+//makes API call to search for the movie and prints it to the DOM
 $('.searchNewMovies').click(function(){
   $('.newMovieSearch').empty()
+  $('.newMovieSearch').removeClass('hideStuff')
+  $('.unWatchedMovies').addClass('hideStuff')
   str = $("#userInput").val();
-  // replaced = str.split(' ').join('+');
   console.log(str)
   var request = $.ajax({
     method: "GET",
@@ -29,7 +30,8 @@ $('.searchNewMovies').click(function(){
       "title": title,
       "actors": actors,
       "year": year,
-      "poster": poster
+      "poster": poster,
+      "watched": false
     }
     console.log(movieData)
     $('.newMovieSearch').append(`<div class="newMovieWrapper">
@@ -41,7 +43,7 @@ $('.searchNewMovies').click(function(){
   })
 })
 
-
+//save a movie to firebase on click of "add to list button"
 $('#addToList').click((e) => {
   console.log(movieData)
   var uid = firebase.auth().currentUser.uid
