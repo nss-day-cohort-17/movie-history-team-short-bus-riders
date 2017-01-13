@@ -1,4 +1,4 @@
-firebase.initializeApp({
+firebase.initializeApp{
 
     apiKey: "AIzaSyD6CkmvZmBWRvXmZaPBeMLNqmyg4l2ZiKk",
     authDomain: "movies-by-short-bus.firebaseapp.com",
@@ -6,7 +6,7 @@ firebase.initializeApp({
     storageBucket: "movies-by-short-bus.appspot.com",
     messagingSenderId: "390164299011"
 
-});
+};
 
 //when the login/register button is clicked, the search areas will hide and the login form will show
 $('#auth-button').click(function (e){
