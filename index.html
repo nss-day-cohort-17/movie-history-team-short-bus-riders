@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Movie History Group</title>
+	   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+      <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+
+
+	<div class='container'>
+        <div class='row'>
+            <input type="text" id="userInput">
+            <button type="button" class="btn btn-default" id="search-button">Search Your Movies</button>
+            <button type="button" class="searchNewMovies btn btn-default" id="find-button">Find New Movies</button>
+            <button type="button" class="hidden btn btn-default login-register" id="auth-button">Login/Register</button>
+						<button type="button" class="btn btn-default signOut">Sign Out</button>
+
+					</div>
+
+						<!-- form that is hidden until login/register button is clicked -->
+
+					<form class="registrationButtons">
+					  <div class="form-group">
+							<h1>Please enter your information:</h1>
+					    <input type="email" class="emailRegister form-control emailRegister" id="exampleInputEmail1" placeholder="Email">
+					  </div>
+					  <div class="form-group">
+					    <input type="password" class="passwordRegister form-control" id="exampleInputPassword1" placeholder="Password">
+					  </div>
+						<button class="login btn btn-default" type="submit">Login</button>
+						<button class="register btn btn-default" type="submit">Register</button>
+						<div class="errorMessage">
+
+						</div>
+					</form>
+
+		<div class="datawrapper">
+
+
+        <div class="row">
+					<h1 class='greeting'></h1>
+
+
+          <span class="hidden col-sm-4 newMovieSearchTitle">new movie search</span>
+          <span class="hidden col-sm-3">tracked</span>
+          <span class="hidden col-sm-3">watched</span>
+
+
+        </div>
+        <div class="row">
+          <div class="newMovieSearch col-sm-4">
+
+
+          </div>
+
+				</div>
+				<div class="row">
+          <div class="unwatchedMovies">
+
+
+          </div>
+
+				</div>
+          <div class="watchedMovies hidden col-sm-3">
+
+          </div>
+
+
+
+
+        <button id="addToList">Add to list</button>
+
+            <!-- <section id="main-container">
+
+            </section> -->
+        </div> <!--.container-->
+
+			</div> <!-- datawrapper -->
+
+
+
+    <script src="bower_components/jquery/dist/jquery.js" type="text/javascript"></script>
+		<script src="bower_components/firebase/firebase.js"></script>
+		<script src="search.js" type="text/javascript"></script>
+		<script src="main.js" type="text/javascript"></script>
+		<script src="testest.js" type="text/javascript">
+
+		</script>
+</body>
+</html>
