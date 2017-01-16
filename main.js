@@ -135,7 +135,7 @@ $('.main-page form').submit((e) => {
 //         type: 'POST',
 //         contentType: "application/json; charset=utf-8",
 //         dataType: "json",
-//         url: "https://movie-history-team-short-bus-riders.firebaseio.com/.json",
+//         url: "https://movies-by-short-bus.firebaseio.com/.json",
 //         data: JSON.stringify(newMovieData)
 //     });
 //     clearMovie()
