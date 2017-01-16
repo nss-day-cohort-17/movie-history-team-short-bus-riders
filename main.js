@@ -1,4 +1,4 @@
-firebase.initializeApp(config){
+firebase.initializeApp{
 
     apiKey: "AIzaSyD6CkmvZmBWRvXmZaPBeMLNqmyg4l2ZiKk",
     authDomain: "movies-by-short-bus.firebaseapp.com",
