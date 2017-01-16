@@ -11,7 +11,7 @@
   padding: 1em;
 }
 
-.newMovieSearch, .unwatchedMovies, .watchedMovies {
+.newMovieSearch, {
   border: 2px solid black;
   /*width: 25%;*/
   height: 30em;
@@ -42,4 +42,8 @@
 
 .form-group > h1 {
   font-size: 1em;
+}
+
+.hideStuff {
+  display: none;
 }
