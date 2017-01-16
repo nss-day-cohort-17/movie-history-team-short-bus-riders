@@ -45,8 +45,9 @@ function resetSearch() {
 
 //function to switch movie to watch
 
-function switchWatched (data){
+
   $(".switchWatched").click (function (e) {
+    console.log('hello')
     var mObj; // holds movie obj
     var mid; // holds movie key
     for (let each in data) {
@@ -69,4 +70,3 @@ function switchWatched (data){
     mObj = "";
     unWatchedMovieFactory();
   })
-}

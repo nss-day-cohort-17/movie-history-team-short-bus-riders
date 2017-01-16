@@ -1,4 +1,4 @@
-firebase.initializeApp(config){
+firebase.initializeApp({
 
     apiKey: "AIzaSyD6CkmvZmBWRvXmZaPBeMLNqmyg4l2ZiKk",
     authDomain: "movies-by-short-bus.firebaseapp.com",
@@ -6,7 +6,7 @@ firebase.initializeApp(config){
     storageBucket: "movies-by-short-bus.appspot.com",
     messagingSenderId: "390164299011"
 
-};
+});
 
 setTimeout(() => {
   if (firebase.auth().currentUser === null) {
@@ -47,12 +47,6 @@ firebase.auth().onAuthStateChanged(() => {
 })
 
 //when the login/register button is clicked, the search areas will hide and the login form will show
-// $('#auth-button').click(function (e){
-//   e.preventDefault()
-//   $('.registrationButtons').removeClass('hideStuff')
-//   $('.datawrapper').addClass('hideStuff')
-// })
-
 
 
 $('.register').click((e) => {
@@ -172,7 +166,7 @@ function populateMyMoviesPage(e) {
           <div class="movieUnwatched">
           <h4>${e[p].movie.title}</h4>
           <img src="${e[p].movie.poster}">
-          <button class="markWatched btn">Mark as Watched</button>
+          <button class="switchWatched btn">Mark as Watched</button>
           </div>`
         )
       }
@@ -186,3 +180,9 @@ function populateMyMoviesPage(e) {
   })
   console.log(e)
 }
+
+$('.signOut').click(function () {
+    firebase.auth().signOut()
+    $('.datawrapper').addClass('hideStuff')
+    $('.registrationButtons').removeClass('hideStuff')
+  })
