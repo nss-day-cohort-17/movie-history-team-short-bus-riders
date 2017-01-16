@@ -21,7 +21,7 @@
 // function myMovies(){
 //     // console.log("new log",newMovieData)
 //     var uid = firebase.auth().currentUser.uid
-//     $.getJSON( `https://movie-history-team-short-bus-riders.firebaseio.com/${uid}.json`)
+//     $.getJSON( `https://movies-by-short-bus.firebaseio.com/${uid}.json`)
 //         .done(function(e) {
 //
 //         populateMyMoviesPage(e) // <--send saved movies to function populateMyMoviesPage
@@ -31,3 +31,42 @@
 //
 // }
 //
+
+
+// reset search field
+
+function resetSearch() {
+   movieInfo = []
+   imdbIDs = []
+   $('#searchResults').html("")
+   $('#searchResults').removeClass('hideStuff')
+   $('.my-movies-page').addClass('hideStuff')
+}
+
+//function to switch movie to watch
+
+
+  $(".switchWatched").click (function (e) {
+    console.log('hello')
+    var mObj; // holds movie obj
+    var mid; // holds movie key
+    for (let each in data) {
+      var currentObj = data[each];
+      console.log("currentObj/Title: ",movieTitle, mObj)
+      if (currentObj.Title === movieTitle){
+        mObj = currentObj;
+        mid = each;
+      }
+    }
+    UID = firebase.auth().currentUser.uid;
+    mObj.watched = true;
+    $.ajax({
+      url: `https://movies-by-short-bus.firebaseio.com/${UID}.json`,
+      type: "PATCH",
+      data: JSON.stringify(data),
+      dataType: "json"
+    })
+    console.log(mObj)
+    mObj = "";
+    unWatchedMovieFactory();
+  })

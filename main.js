@@ -47,12 +47,6 @@ firebase.auth().onAuthStateChanged(() => {
 })
 
 //when the login/register button is clicked, the search areas will hide and the login form will show
-// $('#auth-button').click(function (e){
-//   e.preventDefault()
-//   $('.registrationButtons').removeClass('hideStuff')
-//   $('.datawrapper').addClass('hideStuff')
-// })
-
 
 
 $('.register').click((e) => {
@@ -70,8 +64,7 @@ $('.register').click((e) => {
 
       .catch(
         function(error){
-          console.log(error.message)
-          console.log('hello')
+          console.log(error)
         })
 })
 
@@ -88,8 +81,6 @@ $('.login').click((e) => {
 
   }).catch(
       function(error){
-        $('.errorMessage').text(`${error.message}`)
-        alert(error.message)
         console.log(error.message)
         console.log(e)
       })
@@ -102,6 +93,18 @@ function showHideStuff() {
   $('.datawrapper').removeClass('hideStuff')
 }
 
+$('.main-page form').submit((e) => {
+  var task = $('.main-page input[type="text"]').val()
+  var uid = firebase.auth().currentUser.uid
+  $.post(
+    `https://movies-by-short-bus.firebaseio.com/${uid}.json`,
+    JSON.stringify({ task: task })
+  ).then(res => console.log(res.name))
+
+  e.preventDefault()
+})
+
+
 // $('.main-page form').submit((e) => {
 //   var task = $('.main-page input[type="text"]').val()
 //   var uid = firebase.auth().currentUser.uid
@@ -113,6 +116,7 @@ function showHideStuff() {
 //   e.preventDefault()
 // })
 
+
 //save a movie
 //
 // function saveMovie(e){
@@ -122,7 +126,7 @@ function showHideStuff() {
 //         type: 'POST',
 //         contentType: "application/json; charset=utf-8",
 //         dataType: "json",
-//         url: "https://movie-history-team-short-bus-riders.firebaseio.com/.json",
+//         url: "https://movies-by-short-bus.firebaseio.com/.json",
 //         data: JSON.stringify(newMovieData)
 //     });
 //     clearMovie()
@@ -156,12 +160,12 @@ function populateMyMoviesPage(e) {
       console.log(e[p].movie)
       if (e[p].movie.watched === false){
         $('.unwatchedMovies').append(`
-            <div class="movieUnwatched col-md-4">
-              <h4>${e[p].movie.title}</h4>
-              <img src="${e[p].movie.poster}">
-              <button class="markWatched btn">Mark as Watched</button>
-            </div>
-          `
+
+          <div class="movieUnwatched col-md-4">
+          <h4>${e[p].movie.title}</h4>
+          <img src="${e[p].movie.poster}">
+          <button class="switchWatched btn">Mark as Watched</button>
+          </div>`
         )
       }
     }
@@ -174,3 +178,9 @@ function populateMyMoviesPage(e) {
   })
   console.log(e)
 }
+
+$('.signOut').click(function () {
+    firebase.auth().signOut()
+    $('.datawrapper').addClass('hideStuff')
+    $('.registrationButtons').removeClass('hideStuff')
+  })
