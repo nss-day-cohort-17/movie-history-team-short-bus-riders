@@ -64,8 +64,7 @@ $('.register').click((e) => {
 
       .catch(
         function(error){
-          console.log(error.message)
-          console.log('hello')
+          console.log(error)
         })
 })
 
@@ -82,8 +81,6 @@ $('.login').click((e) => {
 
   }).catch(
       function(error){
-        $('.errorMessage').text(`${error.message}`)
-        alert(error.message)
         console.log(error.message)
         console.log(e)
       })
